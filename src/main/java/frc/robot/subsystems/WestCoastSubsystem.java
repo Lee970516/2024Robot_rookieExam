@@ -109,7 +109,7 @@ public class WestCoastSubsystem extends SubsystemBase {
   }
 
   public DifferentialDriveWheelSpeeds getWheelSpeeds() {
-    return new DifferentialDriveWheelSpeeds(leftModule.getForwardVelocity(), rightModule.getForwardVelocity());//要RPS
+    return new DifferentialDriveWheelSpeeds(leftModule.getForwardVelocity(), rightModule.getForwardVelocity());//要MeterPerSecond
   }
 
   public DifferentialDriveWheelPositions getPosition() {
