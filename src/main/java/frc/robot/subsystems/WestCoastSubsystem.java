@@ -10,13 +10,19 @@ import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrain.OdometryThread;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.util.ReplanningConfig;
 
+import edu.wpi.first.math.controller.proto.DifferentialDriveWheelVoltagesProto;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.math.kinematics.DifferentialDriveWheelPositions;
 import edu.wpi.first.math.kinematics.DifferentialDriveWheelSpeeds;
 import edu.wpi.first.math.kinematics.Odometry;
+import edu.wpi.first.math.kinematics.proto.DifferentialDriveKinematicsProto;
+import edu.wpi.first.math.kinematics.struct.DifferentialDriveKinematicsStruct;
+import edu.wpi.first.math.kinematics.struct.DifferentialDriveWheelSpeedsStruct;
+import edu.wpi.first.math.trajectory.constraint.DifferentialDriveKinematicsConstraint;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -94,6 +100,8 @@ public class WestCoastSubsystem extends SubsystemBase {
   public void Drive_Auto(ChassisSpeeds RobotSpeed) {
     ChassisSpeeds targetSpeeds = ChassisSpeeds.discretize(RobotSpeed, 0.01);
     DifferentialDriveWheelSpeeds wheelSpeeds = WestCoastConstants.westCoastKinematic.toWheelSpeeds(targetSpeeds);
+    leftModule.setModule(wheelSpeeds.leftMetersPerSecond/WestCoastConstants.maxDirveMotorSpeed);
+    rightModule.setModule(wheelSpeeds.rightMetersPerSecond/WestCoastConstants.maxDirveMotorSpeed);
   }
 
   public void resetGyro() {
@@ -124,6 +132,7 @@ public class WestCoastSubsystem extends SubsystemBase {
   public void setPose(Pose2d pose) {
     odometry.resetPosition(getRotation2d(), getPosition(), pose);
   }
+
 
   @Override
   public void periodic() {

@@ -37,8 +37,10 @@ public final class Constants {
     public static final boolean leftForwardModuleReserve = true;
     public static final boolean leftBackModuleReserve = true;
 
+    public static final double maxDirveMotorSpeed = 0;
 
-    public static final DifferentialDriveKinematics westCoastKinematic = new DifferentialDriveKinematics(null);//軌道寬度
+
+    public static final DifferentialDriveKinematics westCoastKinematic = new DifferentialDriveKinematics(0);//軌道寬度
 
     public static final int gyro_ID = 0;
 

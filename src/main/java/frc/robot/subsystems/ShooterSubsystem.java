@@ -4,11 +4,20 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ShooterSubsystem extends SubsystemBase {
   /** Creates a new ShooterSubsystem. */
-  public ShooterSubsystem() {}
+  private final TalonFX shooterMotor;
+  public ShooterSubsystem() {
+    shooterMotor = new TalonFX(0);
+
+    shooterMotor.setInverted(false);
+
+    shooterMotor.setNeutralMode(null);
+  }
 
   @Override
   public void periodic() {

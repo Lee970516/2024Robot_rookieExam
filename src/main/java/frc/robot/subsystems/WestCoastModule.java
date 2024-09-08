@@ -83,9 +83,6 @@ public class WestCoastModule extends SubsystemBase {
     forwardModule.set(speed);
   }
 
-  public void setDesiredState_Auto(DifferentialDriveWheelSpeeds wheelSpeeds) {
-  }
-
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
