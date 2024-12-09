@@ -20,6 +20,25 @@ public final class Constants {
     public static final int operatorController_ID = 1;
   }
 
+  public static class ShooterConstants {
+    public static final int ShooterMotor_ID = 0;
+    public static final boolean shooterReserve = false;
+
+    public static final double shootAMPVol = 0;
+    public static final double shootSpeakerVol = 0;
+    public static final double passNoteVol = 0;
+
+  }
+
+  public static class IntakeConstants {
+    public static final int intakeWheel_ID = 0;
+    public static final boolean intakeWheelReserve = false;
+
+    public static final double intakeVol = 0;
+    public static final double outNoteVol = 0;
+
+  }
+
   public static class WestCoastConstants {
     public static final int rightForwardModule_ID = 0;
     public static final int rightBackModule_ID = 0;
